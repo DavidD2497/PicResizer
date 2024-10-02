@@ -18,14 +18,45 @@
             </div>
             <nav>
                 <ul>
-                    <li><a href="#">INICIO</a></li>
-                    <li><a href="#">SOBRE NOSOTROS</a></li>
+                    <li><a href="index.html">INICIO</a></li>
+                    <li><a href="paginas/sobrenosotros.html">SOBRE NOSOTROS</a></li>
                 </ul>
             </nav>
         </div>
     </header>
     <main>
-        <h1>Aca va el main</h1>
+        <div class="container">
+            <div class="panel-left">
+                <h2>Cargar Imagen</h2>
+                <button class="btn-upload">Seleccionar Archivo <i class="fas fa-file-upload"></i></button>
+                <h2>Tipo de Imagen</h2>
+                <select>
+                    <option value="PNG">PNG</option>
+                    <option value="JPG">JPG</option>
+                </select>
+                <button class="btn-download">Descargar <i class="fas fa-download"></i>
+                </button>
+            </div>
+            <div class="panel-center">
+                <div class="image-container">
+                    <!-- <img id="image-preview" src="" alt="Vista previa de imagen"> -->
+                </div>
+            </div>
+            <div class="panel-right">
+                <h2>Ancho</h2>
+                <label>
+                    <input class="input_numeros" type="number" value="800"> px
+                </label>
+                <h2>Alto</h2>
+                <label>
+                    <input type="number" value="400"> px
+                </label>
+                <label>
+                    <input type="checkbox"> Mantener Relación de Aspecto
+                </label>
+                <button class="btn-delete">Eliminar <i class="fas fa-trash"></i></button>
+            </div>
+        </div>
     </main>
     <footer>
         <footer>
