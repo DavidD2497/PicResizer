@@ -26,38 +26,38 @@
     </header>
     <main>
         <div class="container">
-            <div class="panel-left">
+            <section class="panel-left">
                 <h2>Cargar Imagen</h2>
-                <button class="btn-upload">Seleccionar Archivo <i class="fas fa-file-upload"></i></button>
+                <button id="btnUpload" class="btn-upload">Seleccionar Archivo <i class="fas fa-file-upload"></i></button>
+                <input type="file" id="archivo" accept="image/*" style="display: none;">
                 <h2>Tipo de Imagen</h2>
                 <select>
                     <option value="PNG">PNG</option>
                     <option value="JPG">JPG</option>
                 </select>
-                <button class="btn-download">Descargar <i class="fas fa-download"></i>
-                </button>
-            </div>
-            <div class="panel-center">
-                <div class="image-container">
-                    <!-- <img id="image-preview" src="" alt="Vista previa de imagen"> -->
+                <button class="btn-download">Descargar <i class="fas fa-download"></i></button>
+            </section>
+            <section class="panel-center">
+                <div class="image-container" id="imageContainer">
+                    <img id="preview" src="" style="max-width: 100%; max-height: 100%; transform: scale(1);">
                 </div>
-            </div>
-            <div class="panel-right">
+            </section>
+            <section class="panel-right">
                 <h2>Ancho</h2>
                 <label>
-                    <input class="input_numeros" type="number" value="800"> px
+                    <input class="input_numeros" type="number" name="ancho" value="0"> px
                 </label>
                 <h2>Alto</h2>
                 <label>
-                    <input type="number" value="400"> px
+                    <input type="number" name="alto" value="0"> px
                 </label>
                 <label>
-                    <input type="checkbox"> Mantener Relación de Aspecto
-                </label>
+                    <input type="checkbox" name="mantener_relacion" id="checkboxMantener" checked> Mantener Relación de Aspecto
+                </label>                
                 <button class="btn-delete">Eliminar <i class="fas fa-trash"></i></button>
-            </div>
+            </section>            
         </div>
-    </main>
+    </main>    
     <footer>
         <footer>
             <figure class="social-icons">
@@ -69,5 +69,7 @@
         </footer>
         
     </footer>
+
+    <script src="js/app.js" ></script>
 </body>
 </html>
