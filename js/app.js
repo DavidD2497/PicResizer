@@ -42,7 +42,6 @@ document.getElementById('imageContainer').addEventListener('wheel', function(eve
     previewImage.style.transform = `scale(${scale})`;
 });
 
-
 document.querySelector('.btn-delete').addEventListener('click', function() {
     document.getElementById('preview').src = '';
     document.getElementById('archivo').value = '';
@@ -55,6 +54,33 @@ document.querySelector('.btn-delete').addEventListener('click', function() {
     previewImage.classList.remove('image-loaded');
 });
 
+// Descarga de imagen
+document.querySelector('.btn-download').addEventListener('click', function() {
+    const formatSelect = document.querySelector('select');
+    const format = formatSelect.value.toLowerCase(); // Obtener el formato seleccionado (jpg o png)
+    const ancho = parseInt(document.querySelector('input[name="ancho"]').value); // Ancho especificado
+    const alto = parseInt(document.querySelector('input[name="alto"]').value); // Alto especificado
+
+    if (isNaN(ancho) || isNaN(alto) || ancho <= 0 || alto <= 0) {
+        alert('Por favor, introduce un ancho y alto válidos.');
+        return;
+    }
+
+    // Crear un canvas para redimensionar la imagen
+    const canvas = document.createElement('canvas');
+    const ctx = canvas.getContext('2d');
+    canvas.width = ancho; // Usar el ancho especificado
+    canvas.height = alto; // Usar el alto especificado
+
+    // Dibujar la imagen redimensionada en el canvas
+    ctx.drawImage(previewImage, 0, 0, canvas.width, canvas.height);
+
+    // Crear el enlace de descarga
+    const downloadLink = document.createElement('a');
+    downloadLink.href = canvas.toDataURL(`image/${format}`); // Convertir a jpg o png
+    downloadLink.download = `imagen.${format}`; // Nombre del archivo
+    downloadLink.click(); // Iniciar la descarga
+});
 
 const anchoInput = document.querySelector('input[name="ancho"]');
 const altoInput = document.querySelector('input[name="alto"]');
