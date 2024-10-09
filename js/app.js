@@ -48,6 +48,10 @@ document.querySelector('.btn-delete').addEventListener('click', function() {
     scale = 1;
     previewImage.style.transform = `scale(${scale})`;
 
+    // FALATABA ESTO
+    previewImage.style.width = 'auto'; 
+    previewImage.style.height = 'auto';
+
     document.querySelector('input[name="ancho"]').value = '0';
     document.querySelector('input[name="alto"]').value = '0';
 
