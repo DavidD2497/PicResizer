@@ -115,3 +115,4 @@ altoInput.addEventListener('input', function() {
         previewImage.style.height = `${altoInput.value}px`;
     }
 });
+
