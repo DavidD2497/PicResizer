@@ -33,7 +33,6 @@ const previewImage = document.getElementById('preview');
 document.getElementById('imageContainer').addEventListener('wheel', function(event) {
     event.preventDefault();
 
-    // Ajustar el zoom
     if (event.deltaY < 0) {
         scale += 0.1;
     } else {
@@ -48,7 +47,6 @@ document.querySelector('.btn-delete').addEventListener('click', function() {
     scale = 1;
     previewImage.style.transform = `scale(${scale})`;
 
-    // FALATABA ESTO
     previewImage.style.width = 'auto'; 
     previewImage.style.height = 'auto';
 
@@ -58,32 +56,32 @@ document.querySelector('.btn-delete').addEventListener('click', function() {
     previewImage.classList.remove('image-loaded');
 });
 
-// Descarga de imagen
+
+
+
 document.querySelector('.btn-download').addEventListener('click', function() {
     const formatSelect = document.querySelector('select');
-    const format = formatSelect.value.toLowerCase(); // Obtener el formato seleccionado (jpg o png)
-    const ancho = parseInt(document.querySelector('input[name="ancho"]').value); // Ancho especificado
-    const alto = parseInt(document.querySelector('input[name="alto"]').value); // Alto especificado
+    const format = formatSelect.value.toLowerCase(); 
+    const ancho = parseInt(document.querySelector('input[name="ancho"]').value);
+    const alto = parseInt(document.querySelector('input[name="alto"]').value);
 
     if (isNaN(ancho) || isNaN(alto) || ancho <= 0 || alto <= 0) {
         alert('Por favor, introduce un ancho y alto válidos.');
         return;
     }
 
-    // Crear un canvas para redimensionar la imagen
     const canvas = document.createElement('canvas');
     const ctx = canvas.getContext('2d');
-    canvas.width = ancho; // Usar el ancho especificado
-    canvas.height = alto; // Usar el alto especificado
+    canvas.width = ancho; 
+    canvas.height = alto;
 
-    // Dibujar la imagen redimensionada en el canvas
     ctx.drawImage(previewImage, 0, 0, canvas.width, canvas.height);
 
-    // Crear el enlace de descarga
+
     const downloadLink = document.createElement('a');
-    downloadLink.href = canvas.toDataURL(`image/${format}`); // Convertir a jpg o png
-    downloadLink.download = `imagen.${format}`; // Nombre del archivo
-    downloadLink.click(); // Iniciar la descarga
+    downloadLink.href = canvas.toDataURL(`image/${format}`); 
+    downloadLink.download = `imagen.${format}`;
+    downloadLink.click();
 });
 
 const anchoInput = document.querySelector('input[name="ancho"]');
@@ -115,4 +113,6 @@ altoInput.addEventListener('input', function() {
         previewImage.style.height = `${altoInput.value}px`;
     }
 });
+
+
 
